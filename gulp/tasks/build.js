@@ -13,8 +13,8 @@ gulp.task('previewDist',function(){
  		server :{
  			baseDir:"docs"
  		}
- 	})
-})
+ 	});
+});
 
 //make sure dist will have a clean state, so clean it up every time
 gulp.task('deleteDistFolder',['icons'],function(){
@@ -36,7 +36,7 @@ gulp.task('copyGeneralFiles',['deleteDistFolder'], function(){
 		.pipe(gulp.dest('./docs'));
 });
 
-gulp.task('optimizeImages',['deleteDistFolder','icons'],function(){												// ! is the exclude mark
+gulp.task('optimizeImages',['deleteDistFolder'],function(){												// ! is the exclude mark
 	return gulp.src(['./app/assets/images/**/*','!./app/assets/images/icons','!./app/assets/images/icons/**/*'])
 		.pipe(imagemin({
 			progressive: true,
